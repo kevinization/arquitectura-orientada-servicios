@@ -40,6 +40,11 @@ build/Release
 # Dependency directories
 node_modules/
 jspm_packages/
+ejemplo-clase/node_modules
+ejemplo-clase/orquestadorA/node_modules
+sistema-web/backend/node_modules
+sistema-web/backend/orquestador/node_modules
+sistema-web/frontend/bookshop/node_modules
 
 # TypeScript v1 declaration files
 typings/

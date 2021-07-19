@@ -1,0 +1,36 @@
+<app-header></app-header>
+
+<div class="container">
+
+    <h3>Books list</h3>
+    <br>
+    <button type="button" class="btn btn-primary" (click)="createBook()">New Book</button>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">ID author</th>
+                <th scope="col">ID genre</th>
+                <th scope="col">ID Editorial</th>
+                <th scope="col">ISBN</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let book of books" (click)=Vbook(book.name)>
+                <th scope="row">{{book.name}}</th>
+                <td>{{book.price}}</td>
+                <td>{{book.id_author}}</td>
+                <td>{{book.id_genre}}</td>
+                <td>{{book.id_editorial}}</td>
+                <td>{{book.isbn}}</td>
+                <td>{{book.description}}</td>
+
+
+            </tr>
+        </tbody>
+    </table>
+</div>
+<app-footer></app-footer>
