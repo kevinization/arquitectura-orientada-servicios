@@ -1,9 +1,7 @@
-<app-header></app-header>
 
 <div class="container">
     Contenido
-
-    <table class="table">
+    <!--<table class="table">
         <thead>
             <tr>
                 <th scope="col">Name</th>
@@ -28,7 +26,64 @@
 
             </tr>
         </tbody>
-    </table>
+    </table> -->
+    <br>
+    <form *ngFor= "let book of b" >
+        <div class="form-group">
+
+            <div class="form-group row">
+                <label for="name" class="col-sm-2 col-form-label">Book name</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputName" placeholder="insert a book name" value={{book.name}}>
+                </div>
+            </div>
+            <br>
+            <div class="form-group row">
+                <label for="price" class="col-sm-2 col-form-label">Price</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputPrice" value={{book.price}}>
+                </div>
+            </div>
+            <br>
+            <div class="form-group row">
+                <label for="id_author" class="col-sm-2 col-form-label">ID Author</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputIdAuthor" value={{book.id_author}}>
+                </div>
+            </div>
+            <br>
+            <div class="form-group row">
+                <label for="id_genre" class="col-sm-2 col-form-label">ID Genre</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputIdGenre" value={{book.id_genre}}>
+                </div>
+            </div>
+            <br>
+            <div class="form-group row">
+                <label for="id_editorial" class="col-sm-2 col-form-label">ID Editorial</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputIdEditorial" value={{book.id_editorial}}>
+                </div>
+            </div>
+            <br>
+            <div class="form-group row">
+                <label for="isbn" class="col-sm-2 col-form-label">ISBN</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputISBN" value={{book.isbn}}>
+                </div>
+            </div>
+            <br>
+            <div class="form-group row">
+                <label for="description" class="col-sm-2 col-form-label">Description</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputDescription" value={{book.description}}>
+                </div>
+            </div>
+            <br>
+            <button class="btn btn-danger form-control">Editar</button>
+
+        </div>
+    </form>
+
 </div>
 
-<app-footer></app-footer>

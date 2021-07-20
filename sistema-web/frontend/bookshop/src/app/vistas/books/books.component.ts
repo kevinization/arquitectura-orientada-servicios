@@ -22,11 +22,11 @@ export class BooksComponent implements OnInit {
   }
 
   editBook(sk: string) {
-    this.router.navigate(['books/', sk])
+    this.router.navigate(['books/edit/', sk])
   }
 
-  Vbook(name: string) {
-    this.router.navigate(['books/', name])
+  Vbook(sk: string) {
+    this.router.navigate(['books/', sk])
   }
 
   createBook() {

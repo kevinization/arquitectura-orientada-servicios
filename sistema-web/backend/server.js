@@ -86,26 +86,21 @@ app.get("/getAllGenres", function (req, res) {
   })();
 });
 
-app.get("/getGenre/:name", function (req, res) {
+app.get("/getGenre/:sk", function (req, res) {
   (async () => {
     try {
       var params = {
         TableName: "bookshop_dreamteam",
-        KeyConditionExpression: "pk = :pk",
-        ExpressionAttributeValues: {
-          ":pk": "Genre",
-          ":name": req.params.name,
-        },
-        ExpressionAttributeNames: {
-          "#name": "name",
-        },
-        FilterExpression: "#name = :name",
+        Key: {
+          pk: "Genre",
+          sk: req.params.sk,
+        }
       };
 
-      dynamodb.query(params, function (err, response) {
+      dynamodb.get(params, function (err, response) {
         if (err) res.status(500).send(err);
         else {
-          res.status(200).send(response.Items);
+          res.status(200).send(response.Item);
         }
       });
     } catch (err) {
@@ -222,30 +217,25 @@ app.get("/getAllUsers", function (req, res) {
   })();
 });
 
-app.get("/getUser/:name", function (req, res) {
+app.get("/getUser/:sk", function (req, res) {
   (async () => {
     try {
       var params = {
         TableName: "bookshop_dreamteam",
-        KeyConditionExpression: "pk = :pk",
-        ExpressionAttributeValues: {
-          ":pk": "User",
-          ":name": req.params.name,
-        },
-        ExpressionAttributeNames: {
-          "#name": "name",
-        },
-        FilterExpression: "#name = :name",
+        Key: {
+          pk: "User",
+          sk: req.params.sk,
+        }
       };
 
-      dynamodb.query(params, function (err, response) {
-        if (err) res.status(500).send(err);
+      dynamodb.get(params, function (err, response) {
+        if (err) res.status(500).send(err)
         else {
-          res.status(200).send(response.Items);
+          res.status(200).send(response.Item);
         }
-      });
+      })
     } catch (err) {
-      res.status(500).send(err);
+      res.status(500).send(err)
     }
   })();
 });
@@ -359,26 +349,21 @@ app.get("/getAllAuthors", function (req, res) {
   })();
 });
 
-app.get("/getAuthor/:name", function (req, res) {
+app.get("/getAuthor/:sk", function (req, res) {
   (async () => {
     try {
       var params = {
         TableName: "bookshop_dreamteam",
-        KeyConditionExpression: "pk = :pk",
-        ExpressionAttributeValues: {
-          ":pk": "Author",
-          ":name": req.params.name,
-        },
-        ExpressionAttributeNames: {
-          "#name": "name",
-        },
-        FilterExpression: "#name = :name",
+        Key: {
+          pk: "Author",
+          sk: req.params.sk,
+        }
       };
 
-      dynamodb.query(params, function (err, response) {
+      dynamodb.get(params, function (err, response) {
         if (err) res.status(500).send(err);
         else {
-          res.status(200).send(response.Items);
+          res.status(200).send(response.Item);
         }
       });
     } catch (err) {
@@ -745,26 +730,21 @@ app.get("/getAllBooks", function (req, res) {
   })();
 });
 
-app.get("/getBook/:name", function (req, res) {
+app.get("/getBook/:sk", function (req, res) {
   (async () => {
     try {
       var params = {
         TableName: "bookshop_dreamteam",
-        KeyConditionExpression: "pk = :pk",
-        ExpressionAttributeValues: {
-          ":pk": "Book",
-          ":name": req.params.name,
-        },
-        ExpressionAttributeNames: {
-          "#name": "name",
-        },
-        FilterExpression: "#name = :name",
+        Key: {
+          pk: "Book",
+          sk: req.params.sk,
+        }
       };
 
-      dynamodb.query(params, function (err, response) {
+      dynamodb.get(params, function (err, response) {
         if (err) res.status(500).send(err);
         else {
-          res.status(200).send(response.Items);
+          res.status(200).send(response.Item);
         }
       });
     } catch (err) {

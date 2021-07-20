@@ -9,14 +9,14 @@ const app = express();
 app.use(cors());
 
 app.get("/", function (req, res) {
-    res.send({ "stage": "dev" })
-})
+    res.send({ "stage": "dev" });
+});
 
 app.get("/getAll", function (req, res) {
     axios.get("https://epkb7eza34.execute-api.us-east-2.amazonaws.com/dev/getAll")
         .then(function (response) {
-            res.status(200).send(response.data)
-        }).catch(err => { res.status(500).send(err) })
+            res.status(200).send(response.data);
+        }).catch(err => { res.status(500).send(err); });
 });
 
 //Genres
@@ -24,15 +24,15 @@ app.get("/getAll", function (req, res) {
 app.get("/getAllGenres", function (req, res) {
     axios.get("https://epkb7eza34.execute-api.us-east-2.amazonaws.com/dev/getAllGenres")
         .then(function (response) {
-            res.status(200).send(response.data)
-        }).catch(err => { res.status(500).send(err) })
+            res.status(200).send(response.data);
+        }).catch(err => { res.status(500).send(err); });
 });
 
-app.get("/getGenre/:name", function (req, res) {
-    axios.get("https://epkb7eza34.execute-api.us-east-2.amazonaws.com/dev/getGenre/" + req.params.name)
+app.get("/getGenre/:sk", function (req, res) {
+    axios.get("https://epkb7eza34.execute-api.us-east-2.amazonaws.com/dev/getGenre/" + req.params.sk)
         .then(function (response) {
-            res.status(200).send(response.data)
-        }).catch(err => { res.status(500).send(err) })
+            res.status(200).send(response.data);
+        }).catch(err => { res.status(500).send(err); });
 });
 
 app.post("/createGenre", jsonParser, function (req, res) {
@@ -40,27 +40,27 @@ app.post("/createGenre", jsonParser, function (req, res) {
         try {
             let data = {
                 "name": req.body.name
-            }
+            };
 
             axios.post("https://epkb7eza34.execute-api.us-east-2.amazonaws.com/dev/createGenre/", data)
                 .then(function (response) {
-                    res.status(200).send(response.data)
-                }).catch(err => { res.status(500).send(err) })
+                    res.status(200).send(response.data);
+                }).catch(err => { res.status(500).send(err); });
         } catch (err) {
-            return res.status(500).send(err)
+            return res.status(500).send(err);
         }
-    })()
+    })();
 });
 
 app.put("/updateGenre/:sk", jsonParser, function (req, res) {
     url = "https://epkb7eza34.execute-api.us-east-2.amazonaws.com/dev/updateGenre/" + req.params.sk;
     let data = {
         "name": req.body.name,
-    }
+    };
     axios.put(url, data)
         .then(function (response) {
-            res.status(200).send(response.data)
-        }).catch(err => { res.status(500).send(err) })
+            res.status(200).send(response.data);
+        }).catch(err => { res.status(500).send(err); });
 });
 
 app.delete("/deleteGenre/:sk", function (req, res) {
@@ -68,8 +68,8 @@ app.delete("/deleteGenre/:sk", function (req, res) {
 
     axios.delete(url)
         .then(function (response) {
-            res.status(200).send(response.data)
-        }).catch(err => { res.status(500).send(err) })
+            res.status(200).send(response.data);
+        }).catch(err => { res.status(500).send(err); });
 });
 
 //Users
@@ -77,15 +77,15 @@ app.delete("/deleteGenre/:sk", function (req, res) {
 app.get("/getAllUsers", function (req, res) {
     axios.get("https://epkb7eza34.execute-api.us-east-2.amazonaws.com/dev/getAllUsers")
         .then(function (response) {
-            res.status(200).send(response.data)
-        }).catch(err => { res.status(500).send(err) })
+            res.status(200).send(response.data);
+        }).catch(err => { res.status(500).send(err); });
 });
 
-app.get("/getUser/:name", function (req, res) {
-    axios.get("https://epkb7eza34.execute-api.us-east-2.amazonaws.com/dev/getUser/" + req.params.name)
+app.get("/getUser/:sk", function (req, res) {
+    axios.get("https://epkb7eza34.execute-api.us-east-2.amazonaws.com/dev/getUser/" + req.params.sk)
         .then(function (response) {
-            res.status(200).send(response.data)
-        }).catch(err => { res.status(500).send(err) })
+            res.status(200).send(response.data);
+        }).catch(err => { res.status(500).send(err); });
 });
 
 app.post("/createUser", jsonParser, function (req, res) {
@@ -101,16 +101,16 @@ app.post("/createUser", jsonParser, function (req, res) {
                 "num": req.body.num,
                 "suburb": req.body.suburb,
                 "zipcode": req.body.zipcode
-            }
+            };
 
             axios.post("https://epkb7eza34.execute-api.us-east-2.amazonaws.com/dev/createUser/", data)
                 .then(function (response) {
-                    res.status(200).send(response.data)
-                }).catch(err => { res.status(500).send(err) })
+                    res.status(200).send(response.data);
+                }).catch(err => { res.status(500).send(err); });
         } catch (err) {
-            return res.status(500).send(err)
+            return res.status(500).send(err);
         }
-    })()
+    })();
 });
 
 app.put("/updateUser/:sk", jsonParser, function (req, res) {
@@ -125,11 +125,11 @@ app.put("/updateUser/:sk", jsonParser, function (req, res) {
         "num": req.body.num,
         "suburb": req.body.suburb,
         "zipcode": req.body.zipcode
-    }
+    };
     axios.put(url, data)
         .then(function (response) {
-            res.status(200).send(response.data)
-        }).catch(err => { res.status(500).send(err) })
+            res.status(200).send(response.data);
+        }).catch(err => { res.status(500).send(err); });
 });
 
 app.delete("/deleteUser/:sk", function (req, res) {
@@ -150,8 +150,8 @@ app.get("/getAllAuthors", function (req, res) {
         }).catch(err => { res.status(500).send(err) })
 });
 
-app.get("/getAuthor/:name", function (req, res) {
-    axios.get("https://epkb7eza34.execute-api.us-east-2.amazonaws.com/dev/getAuthor/" + req.params.name)
+app.get("/getAuthor/:sk", function (req, res) {
+    axios.get("https://epkb7eza34.execute-api.us-east-2.amazonaws.com/dev/getAuthor/" + req.params.sk)
         .then(function (response) {
             res.status(200).send(response.data)
         }).catch(err => { res.status(500).send(err) })
@@ -319,8 +319,8 @@ app.get("/getAllBooks", function (req, res) {
         }).catch(err => { res.status(500).send(err) })
 });
 
-app.get("/getBook/:name", function (req, res) {
-    axios.get("https://epkb7eza34.execute-api.us-east-2.amazonaws.com/dev/getBook/" + req.params.name)
+app.get("/getBook/:sk", function (req, res) {
+    axios.get("https://epkb7eza34.execute-api.us-east-2.amazonaws.com/dev/getBook/" + req.params.sk)
         .then(function (response) {
             console.log(response.data);
             res.status(200).send(response.data)

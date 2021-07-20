@@ -19,8 +19,8 @@ export class ApiService {
     return this.http.get<BookslistI[]>(direccion);
   }
 
-  getBook(name: string): Observable<BookI> {
-    let direccion = this.url + "getBook/" + name;
+  getBook(sk: string): Observable<BookI> {
+    let direccion = this.url + "getBook/" + sk;
     console.log("direccion: " + direccion);
     return this.http.get<BookI>(direccion);
   }

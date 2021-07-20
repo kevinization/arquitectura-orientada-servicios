@@ -40,7 +40,7 @@ const routes: Routes = [
 
   // Books routes
   { path: 'books', component: BooksComponent },
-  { path: 'books/:name', component: EditBookComponent },
+  { path: 'books/:sk', component: EditBookComponent },
   { path: 'books/create', component: CreateBookComponent },
   { path: 'books/edit/:sk', component: EditBookComponent },
 
