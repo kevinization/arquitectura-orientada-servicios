@@ -16,7 +16,7 @@ export class EditBookComponent implements OnInit {
 
   ngOnInit(): void {
 
-    let bookSk = this.activatedrouter.snapshot.paramMap.get('name');
+    let bookSk = this.activatedrouter.snapshot.paramMap.get('sk');
     console.log('hkdhfkd: ' + bookSk);
 
     if (bookSk === null) {
