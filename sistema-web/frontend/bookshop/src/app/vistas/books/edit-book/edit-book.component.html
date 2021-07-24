@@ -1,89 +1,63 @@
-
 <div class="container">
-    Contenido
-    <!--<table class="table">
-        <thead>
-            <tr>
-                <th scope="col">Name</th>
-                <th scope="col">Price</th>
-                <th scope="col">ID author</th>
-                <th scope="col">ID genre</th>
-                <th scope="col">ID Editorial</th>
-                <th scope="col">ISBN</th>
-                <th scope="col">Description</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let book of b">
-                <th scope="row">{{book.name}}</th>
-                <td>{{book.price}}</td>
-                <td>{{book.id_author}}</td>
-                <td>{{book.id_genre}}</td>
-                <td>{{book.id_editorial}}</td>
-                <td>{{book.isbn}}</td>
-                <td>{{book.description}}</td>
-
-
-            </tr>
-        </tbody>
-    </table> -->
+    <h3 for="">Bienvenido a la pestaña para editar :u</h3>
     <br>
-    <form *ngFor= "let book of b" >
+    <form>
         <div class="form-group">
 
             <div class="form-group row">
                 <label for="name" class="col-sm-2 col-form-label">Book name</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputName" placeholder="insert a book name" value={{book.name}}>
+                    <input [(ngModel)] ="book.name" type="text" class="form-control" id="name" name="name" placeholder="insert a book name">
                 </div>
             </div>
             <br>
             <div class="form-group row">
                 <label for="price" class="col-sm-2 col-form-label">Price</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputPrice" value={{book.price}}>
+                    <input [(ngModel)]="book.price" type="nubmer" id="price" name="price" class="form-control" id="inputPrice">
                 </div>
             </div>
             <br>
             <div class="form-group row">
                 <label for="id_author" class="col-sm-2 col-form-label">ID Author</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputIdAuthor" value={{book.id_author}}>
+                    <input [(ngModel)]= "book.id_author" type="text" class="form-control" id="inputIdAuthor" name="id_author" >
                 </div>
             </div>
             <br>
             <div class="form-group row">
                 <label for="id_genre" class="col-sm-2 col-form-label">ID Genre</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputIdGenre" value={{book.id_genre}}>
+                    <input  [(ngModel)]= "book.id_genre"type="text" class="form-control" id="inputIdGenre" name="id_genre">
                 </div>
             </div>
             <br>
             <div class="form-group row">
                 <label for="id_editorial" class="col-sm-2 col-form-label">ID Editorial</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputIdEditorial" value={{book.id_editorial}}>
+                    <input [(ngModel)]= "book.id_editorial" type="text" class="form-control" id="inputIdEditorial" name="id_editorial">
                 </div>
             </div>
             <br>
             <div class="form-group row">
                 <label for="isbn" class="col-sm-2 col-form-label">ISBN</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputISBN" value={{book.isbn}}>
+                    <input [(ngModel)]= "book.isbn" type="text" class="form-control" id="inputISBN" name="isbn">
                 </div>
             </div>
             <br>
             <div class="form-group row">
                 <label for="description" class="col-sm-2 col-form-label">Description</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputDescription" value={{book.description}}>
+                    <input [(ngModel)]= "book.description" type="text" class="form-control" id="inputDescription" name="description">
                 </div>
             </div>
             <br>
-            <button class="btn btn-danger form-control">Editar</button>
-
+            <div class="form-group d-flex justify-content-center ">
+                <button (click)="save()" class="btn btn-primary col-6">Save Changes</button>
+                <button class="btn btn-danger col-6">Cancel</button>
+            </div>
         </div>
     </form>
-
-</div>
-
+    <br>
+</div> 

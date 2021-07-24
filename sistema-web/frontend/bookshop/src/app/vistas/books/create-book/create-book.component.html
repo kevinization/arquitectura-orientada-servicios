@@ -1,1 +1,63 @@
-<p>create-book works!</p>
+<div class="container">
+    <h3 for="">Bienvenido a la pestaña para añadir :u</h3>
+    <br>
+    <form>
+        <div class="form-group">
+
+            <div class="form-group row">
+                <label for="name" class="col-sm-2 col-form-label">Book name</label>
+                <div class="col-sm-10">
+                    <input [(ngModel)] ="book.name" type="text" class="form-control" id="name" name="name" placeholder="insert a book name">
+                </div>
+            </div>
+            <br>
+            <div class="form-group row">
+                <label for="price" class="col-sm-2 col-form-label">Price</label>
+                <div class="col-sm-10">
+                    <input [(ngModel)]="book.price" type="nubmer" id="price" name="price" class="form-control" id="inputPrice">
+                </div>
+            </div>
+            <br>
+            <div class="form-group row">
+                <label for="id_author" class="col-sm-2 col-form-label">ID Author</label>
+                <div class="col-sm-10">
+                    <input [(ngModel)]= "book.id_author" type="text" class="form-control" id="inputIdAuthor" name="id_author" >
+                </div>
+            </div>
+            <br>
+            <div class="form-group row">
+                <label for="id_genre" class="col-sm-2 col-form-label">ID Genre</label>
+                <div class="col-sm-10">
+                    <input  [(ngModel)]= "book.id_genre"type="text" class="form-control" id="inputIdGenre" name="id_genre">
+                </div>
+            </div>
+            <br>
+            <div class="form-group row">
+                <label for="id_editorial" class="col-sm-2 col-form-label">ID Editorial</label>
+                <div class="col-sm-10">
+                    <input [(ngModel)]= "book.id_editorial" type="text" class="form-control" id="inputIdEditorial" name="id_editorial">
+                </div>
+            </div>
+            <br>
+            <div class="form-group row">
+                <label for="isbn" class="col-sm-2 col-form-label">ISBN</label>
+                <div class="col-sm-10">
+                    <input [(ngModel)]= "book.isbn" type="text" class="form-control" id="inputISBN" name="isbn">
+                </div>
+            </div>
+            <br>
+            <div class="form-group row">
+                <label for="description" class="col-sm-2 col-form-label">Description</label>
+                <div class="col-sm-10">
+                    <input [(ngModel)]= "book.description" type="text" class="form-control" id="inputDescription" name="description">
+                </div>
+            </div>
+            <br>
+            <div class="form-group d-flex justify-content-center ">
+                <button (click)="add()" class="btn btn-primary col-6">Añadir</button>
+                <button class="btn btn-danger col-6">Cancelar</button>
+            </div>
+        </div>
+    </form>
+    <br>
+</div> 

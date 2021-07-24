@@ -11,14 +11,12 @@ import { BookslistI } from 'src/app/modelos/bookslist.interface';
 export class BooksComponent implements OnInit {
 
   books: BookslistI[] = [];
+  
 
   constructor(private api: ApiService, private router: Router) { }
 
   ngOnInit(): void {
-    this.api.getAllBooks().subscribe(data => {
-      console.log(data)
-      this.books = data
-    })
+    this.getBooks();
   }
 
   editBook(sk: string) {
@@ -29,10 +27,23 @@ export class BooksComponent implements OnInit {
     this.router.navigate(['books/', sk])
   }
 
+  deleteBook(sk:string){
+    this.api.deleteBook(sk).subscribe(data => {
+      console.log('Equipo eliminado');
+      this.getBooks();
+    },
+    err => console.log(err)
+    );
+  }
+
   createBook() {
     this.router.navigate(['books/create'])
   }
 
-
-
+  getBooks(){
+    this.api.getAllBooks().subscribe(data => {
+      console.log(data)
+      this.books = data
+    })
+  }
 }

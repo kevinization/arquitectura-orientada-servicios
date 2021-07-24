@@ -2,4 +2,6 @@ footer {
   height: 100px;
   bottom: 0;
   width: 100%;
+  padding: 1em;
+  align-self: flex-end;
 }

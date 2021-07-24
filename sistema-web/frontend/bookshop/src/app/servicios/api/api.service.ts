@@ -19,9 +19,27 @@ export class ApiService {
     return this.http.get<BookslistI[]>(direccion);
   }
 
-  getBook(sk: string): Observable<BookI> {
+  getBook(sk: string): Observable<BookslistI[]> {
     let direccion = this.url + "getBook/" + sk;
     console.log("direccion: " + direccion);
-    return this.http.get<BookI>(direccion);
+    return this.http.get<BookslistI[]>(direccion);
+  }
+
+  deleteBook(sk: string): Observable<BookI>{
+    let direccion = this.url + "deleteBook/" +sk;
+    console.log("direccion: " + direccion);
+    return this.http.delete<BookI>(direccion);
+  }
+
+  updateBook(sk: string, book:any){
+    let direccion = this.url + "updateBook/" + sk;
+    console.log("direccion: " + direccion + "\n datos: " + book);
+    return this.http.put(direccion, book);
+  }
+
+  createBook(book: any): Observable<BookI>{
+    let direccion = this.url + "createBook";
+    console.log("direccion: " + direccion + "\n datos: " + book);
+    return this.http.post<BookI>(direccion, book);
   }
 }

@@ -322,7 +322,6 @@ app.get("/getAllBooks", function (req, res) {
 app.get("/getBook/:sk", function (req, res) {
     axios.get("https://epkb7eza34.execute-api.us-east-2.amazonaws.com/dev/getBook/" + req.params.sk)
         .then(function (response) {
-            console.log(response.data);
             res.status(200).send(response.data)
         }).catch(err => { res.status(500).send(err) })
 });
