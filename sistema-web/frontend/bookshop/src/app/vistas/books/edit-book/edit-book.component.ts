@@ -20,7 +20,6 @@ export class EditBookComponent implements OnInit {
     price: ''
   }
   list: any;
-  price: any;
   bookSk: any;
   constructor(private activatedrouter: ActivatedRoute, private router: Router, private api: ApiService) { }
 

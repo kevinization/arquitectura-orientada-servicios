@@ -29,7 +29,7 @@ export class BooksComponent implements OnInit {
 
   deleteBook(sk:string){
     this.api.deleteBook(sk).subscribe(data => {
-      console.log('Equipo eliminado');
+      console.log('Libro eliminado');
       this.getBooks();
     },
     err => console.log(err)

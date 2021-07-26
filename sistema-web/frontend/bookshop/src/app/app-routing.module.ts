@@ -41,34 +41,38 @@ const routes: Routes = [
   // Books routes
   { path: 'books', component: BooksComponent },
   { path: 'books/create', component: CreateBookComponent },
-  //{ path: 'books/:sk', component: EditBookComponent},
   { path: 'books/delete/:sk', component: BooksComponent},
   { path: 'books/edit/:sk', component: EditBookComponent },
 
   // Editorials routes
   { path: 'editorials', component: EditorialsComponent },
-  //{ path: 'editorials/create', component: CreateEditorialComponent },
-  //{ path: 'editorials/edit/:sk', component: EditEditorialComponent },
+  { path: 'editorials/create', component: CreateEditorialComponent },
+  { path: 'editorials/edit/:sk', component: EditEditorialComponent },
+  { path: 'editorials/delete:sk', component: EditorialsComponent},
 
   // Genres routes
   { path: 'genres', component: GenresComponent },
-  //{ path: 'genres/create', component: CreateGenreComponent },
-  //{ path: 'genres/edit/:sk', component: EditGenreComponent },
+  { path: 'genres/create', component: CreateGenreComponent },
+  { path: 'genres/edit/:sk', component: EditGenreComponent },
+  { path: 'generes/delete/:sk', component: GenresComponent},
 
   // Orders routes
   { path: 'orders', component: OrdersComponent },
-  //{ path: 'orders/create', component: CreateOrderComponent },
-  //{ path: 'orders/edit/:sk', component: EditOrderComponent },
+  { path: 'orders/create', component: CreateOrderComponent },
+  { path: 'orders/edit/:sk', component: EditOrderComponent },
+  { path: 'orders/delete/:sk', component: OrdersComponent},
 
   // Sales routes
   { path: 'sales', component: SalesComponent },
-  //{ path: 'sales/create', component: CreateSaleComponent },
-  //{ path: 'sales/edit/:sk', component: EditSaleComponent },
+  { path: 'sales/create', component: CreateSaleComponent },
+  { path: 'sales/edit/:sk', component: EditSaleComponent },
+  { path: 'sales/delete/:sk', component: SalesComponent},
 
   // Users routes
   { path: 'users', component: UsersComponent },
-  //{ path: 'users/create', component: CreateUserComponent },
-  //{ path: 'users/edit/:sk', component: EditUserComponent },
+  { path: 'users/create', component: CreateUserComponent },
+  { path: 'users/edit/:sk', component: EditUserComponent },
+  { path: 'users/delete/:sk', component: UsersComponent}
 ];
 
 @NgModule({

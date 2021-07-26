@@ -1,1 +1,30 @@
-<p>editorials works!</p>
+<div class="container">
+
+    <h3 class="text-white">Editorials list</h3>
+    <br>
+    <button type="button" class="btn btn-primary" (click)="createEditorial()">Add new <i class="fas fa-plus"></i></button>
+    <br>
+    <br>
+    <table class="table table-striped table-dark">
+        <thead>
+            <tr>
+                <th scope="col">ID Order</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Contact name</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let e of editorials">
+                <th scope="row">{{e.id_order}}</th>
+                <td>{{e.editorial_phone}}</td>
+                <td>{{e.contact_name}}</td>
+                <td>
+                    <button type="button" class="btn mr-2 mb-2 btn-primary" (click)="editEditorial(e.sk)" >Update <i class="fas fa-edit" title="Update"></i></button>
+                    <button type="button" class="btn mr-2 mb-2 btn-danger" (click)="deleteEditorial(e.sk)">Delete <i class="fas fa-trash" title="Delete"></i></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+      
+</div>
