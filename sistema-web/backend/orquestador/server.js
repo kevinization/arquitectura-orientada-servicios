@@ -398,7 +398,6 @@ app.post("/createOrder", jsonParser, function (req, res) {
                 "id_user": req.body.id_user,
                 "id_book": req.body.id_book,
                 "delivery_date": req.body.delivery_date,
-                "order_date": req.body.order_date,
                 "quantity_books": req.body.quantity_books,
                 "cost": req.body.cost
             }

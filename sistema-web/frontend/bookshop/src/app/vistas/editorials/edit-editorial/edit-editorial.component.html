@@ -1,1 +1,38 @@
-<p>edit-editorial works!</p>
+<div class="container">
+    <h3  class="text-white" for="">Bienvenido a la pestaña para editar :u</h3>
+    <br>
+    <form>
+        <div class="form-group">
+
+            <div class="form-group row">
+                <label for="id_order" class="col-sm-2 col-form-label text-white">Order</label>
+                <div class="col-sm-10">
+                    <select [(ngModel)]="editorial.id_order" name="select" class="form-control form-control-sm">
+                        <option disabled="true" selected >- Select -</option>
+                        <option *ngFor="let o of orders" value={{o.sk}} >Books: {{o.quantity_books}}, Total: {{o.cost}}, Date: {{o.delivery_date}}</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+            <div class="form-group row">
+                <label for="price" class="col-sm-2 col-form-label text-white">Phone</label>
+                <div class="col-sm-10">
+                    <input [(ngModel)]="editorial.editorial_phone" type="tel" id="editorial_phone" name="editorial_phone" class="form-control" placeholder="Example: 618-000-00-00">
+                </div>
+            </div>
+            <br>
+            <div class="form-group row">
+                <label for="id_author" class="col-sm-2 col-form-label text-white">Contact name</label>
+                <div class="col-sm-10">
+                    <input [(ngModel)]= "editorial.contact_name" type="text" class="form-control" id="contact_name" name="contact_name" placeholder="Type the editorial name">
+                </div>
+            </div>
+            <br>
+            <div class="form-group d-flex justify-content-center ">
+                <button (click)="save()" class="btn btn-primary col-6">Save Changes</button>
+                <button class="btn btn-danger col-6">Cancel</button>
+            </div>
+        </div>
+    </form>
+    <br>
+</div> 

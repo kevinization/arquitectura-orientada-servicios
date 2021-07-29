@@ -22,10 +22,6 @@ export class EditorialsComponent implements OnInit {
     this.router.navigate(['editorials/edit/', sk])
   }
 
-  VEditorial(sk: string) {
-    this.router.navigate(['editorials/', sk])
-  }
-
   deleteEditorial(sk:string){
     this.api.deleteEditorial(sk).subscribe(data => {
       console.log('Editorial eliminada');
@@ -42,9 +38,9 @@ export class EditorialsComponent implements OnInit {
 
   getEditorials(){
     this.api.getAllEditorials().subscribe(data => {
-      console.log(data)
-      this.editorials = data
-    })
+      console.log(data);
+      this.editorials = data;
+    });
   }
 
 

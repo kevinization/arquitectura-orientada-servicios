@@ -18,13 +18,29 @@ h2 {
 
 .pad {
   padding-top: 120px;
+  width: auto;
 }
-p {
-  font-size: 18px;
-  color: #999999;
-  line-height: 1.8;
-  margin-bottom: 0;
+
+.btn-danger {
+  background-color: #882933 !important;
+  border-color: #882933 !important;
 }
+
+.btn-primary {
+  background-color: #370e90 !important;
+  border-color: #370e90 !important;
+}
+
+.btn-primary:hover {
+  background-color: #693fc6 !important;
+  border-color: #693fc6 !important;
+}
+
+.btn-danger:hover {
+  background-color: #b21f2d !important;
+  border-color: #b21f2d !important;
+}
+
 section {
   padding: 100px 0;
 }

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from 'src/app/servicios/api/api.service';
+import { Router } from '@angular/router';
+import { UserI } from 'src/app/modelos/user.interface';
 
 @Component({
   selector: 'app-users',
@@ -7,9 +10,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsersComponent implements OnInit {
 
-  constructor() { }
+  users: UserI[] = [];
+
+  constructor(private api: ApiService, private router: Router) { }
 
   ngOnInit(): void {
+    this.getUsers();
+  }
+
+  editUser(sk: string) {
+    this.router.navigate(['users/edit/', sk])
+  }
+
+  deleteUser(sk:string){
+    this.api.deleteUser(sk).subscribe(data => {
+      console.log('Usuario eliminado');
+      this.getUsers();
+    },
+    err => console.log(err)
+    );
+  }
+
+  createUser() {
+    this.router.navigate(['users/create'])
+  }
+
+  getUsers(){
+    this.api.getAllUsers().subscribe(data => {
+      console.log(data);
+      this.users = data;
+    });
   }
 
 }

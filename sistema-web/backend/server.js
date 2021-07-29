@@ -819,7 +819,7 @@ app.post("/createOrder", jsonParser, function (req, res) {
         id_user: req.body.id_user,
         id_book: req.body.id_book,
         delivery_date: req.body.delivery_date,
-        order_date: req.body.order_date,
+        order_date: date,
         quantity_books: req.body.quantity_books,
         cost: req.body.cost,
         createdAt: date,
@@ -898,12 +898,11 @@ app.put("/updateOrder/:sk", jsonParser, function (req, res) {
       sk: req.params.sk,
     },
     UpdateExpression:
-      "set id_user = :u, id_book = :b, delivery_date = :dd, order_date = :od, quantity_books = :qb, cost = :c",
+      "set id_user = :u, id_book = :b, delivery_date = :dd, quantity_books = :qb, cost = :c",
     ExpressionAttributeValues: {
       ":u": req.body.id_user,
       ":b": req.body.id_book,
       ":dd": req.body.delivery_date,
-      ":od": req.body.order_date,
       ":qb": req.body.quantity_books,
       ":c": req.body.cost,
     },

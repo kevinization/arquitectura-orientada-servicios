@@ -5,49 +5,58 @@
         <div class="form-group">
 
             <div class="form-group row">
-                <label for="name" class="col-sm-2 col-form-label">Book name</label>
+                <label for="name" class="col-sm-2 col-form-label text-white">Book name</label>
                 <div class="col-sm-10">
                     <input [(ngModel)] ="book.name" type="text" class="form-control" id="name" name="name" placeholder="insert a book name">
                 </div>
             </div>
             <br>
             <div class="form-group row">
-                <label for="price" class="col-sm-2 col-form-label">Price</label>
+                <label for="price" class="col-sm-2 col-form-label text-white">Price</label>
                 <div class="col-sm-10">
                     <input [(ngModel)]="book.price" type="nubmer" id="price" name="price" class="form-control" id="inputPrice">
                 </div>
             </div>
             <br>
             <div class="form-group row">
-                <label for="id_author" class="col-sm-2 col-form-label">ID Author</label>
+                <label for="id_author" class="col-sm-2 col-form-label text-white">Author</label>
                 <div class="col-sm-10">
-                    <input [(ngModel)]= "book.id_author" type="text" class="form-control" id="inputIdAuthor" name="id_author" >
+                    <select [(ngModel)]="book.id_author" name="select" class="form-control form-control-sm">
+                        <option disabled="true" selected >- Select -</option>
+                        <option *ngFor="let auth of authors" value={{auth.sk}} >{{auth.name}}</option>
+                    </select>
                 </div>
             </div>
             <br>
             <div class="form-group row">
-                <label for="id_genre" class="col-sm-2 col-form-label">ID Genre</label>
+                <label for="id_genre" class="col-sm-2 col-form-label text-white">Genre</label>
                 <div class="col-sm-10">
-                    <input  [(ngModel)]= "book.id_genre"type="text" class="form-control" id="inputIdGenre" name="id_genre">
+                    <select [(ngModel)]="book.id_genre" name="select" class="form-control form-control-sm">
+                        <option disabled="true" selected >- Select -</option>
+                        <option *ngFor="let g of genres" value={{g.sk}} >{{g.name}}, {{g.sk}}</option>
+                    </select>
                 </div>
             </div>
             <br>
             <div class="form-group row">
-                <label for="id_editorial" class="col-sm-2 col-form-label">ID Editorial</label>
+                <label for="id_editorial" class="col-sm-2 col-form-label text-white">Editorial</label>
                 <div class="col-sm-10">
-                    <input [(ngModel)]= "book.id_editorial" type="text" class="form-control" id="inputIdEditorial" name="id_editorial">
+                    <select [(ngModel)]="book.id_editorial" name="select" class="form-control form-control-sm">
+                        <option disabled="true" selected >- Select -</option>
+                        <option *ngFor="let e of editorials" value={{e.sk}} >{{e.contact_name}}, {{e.editorial_phone}}, </option>
+                    </select>
                 </div>
             </div>
             <br>
             <div class="form-group row">
-                <label for="isbn" class="col-sm-2 col-form-label">ISBN</label>
+                <label for="isbn" class="col-sm-2 col-form-label text-white">ISBN</label>
                 <div class="col-sm-10">
                     <input [(ngModel)]= "book.isbn" type="text" class="form-control" id="inputISBN" name="isbn">
                 </div>
             </div>
             <br>
             <div class="form-group row">
-                <label for="description" class="col-sm-2 col-form-label">Description</label>
+                <label for="description" class="col-sm-2 col-form-label text-white">Description</label>
                 <div class="col-sm-10">
                     <input [(ngModel)]= "book.description" type="text" class="form-control" id="inputDescription" name="description">
                 </div>

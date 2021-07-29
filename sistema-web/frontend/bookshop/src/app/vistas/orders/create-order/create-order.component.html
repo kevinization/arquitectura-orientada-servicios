@@ -1,1 +1,54 @@
-<p>create-order works!</p>
+<div class="container">
+    <h3  class="text-white" for="">Bienvenido a la pestaña para añadir :u</h3>
+    <br>
+    <form>
+        <div class="form-group">
+            <div class="form-group row">
+                <label for="id_user" class="col-sm-2 col-form-label text-white">User</label>
+                <div class="col-sm-10">
+                    <select [(ngModel)]="order.id_user" name="select" class="form-control form-control-sm">
+                        <option disabled="true" selected >- Select -</option>
+                        <option *ngFor="let u of users" value={{u.sk}} >{{u.name}} {{u.lastnamef}} {{u.lastnamem}}</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+            <div class="form-group row">
+                <label for="id_book" class="col-sm-2 col-form-label text-white">Book</label>
+                <div class="col-sm-10">
+                    <select [(ngModel)]="order.id_book" name="select" class="form-control form-control-sm">
+                        <option disabled="true" selected >- Select -</option>
+                        <option *ngFor="let b of books" value={{b.sk}} >{{b.name}}, ${{b.price}}</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+            <div class="form-group row">
+                <label for="delivery_date" class="col-sm-2 col-form-label text-white">Delivery date</label>
+                <div class="col-sm-10">
+                    <input [(ngModel)]= "order.delivery_date" type="text" class="form-control" id="delivery_date" name="delivery_date" >
+                </div>
+            </div>
+            <br>
+            <div class="form-group row">
+                <label for="quantity_books" class="col-sm-2 col-form-label text-white">Quantity</label>
+                <div class="col-sm-10">
+                    <input [(ngModel)]= "order.quantity_books" type="number" class="form-control" id="quantity_books" name="quantity_books" >
+                </div>
+            </div>
+            <br>
+            <div class="form-group row">
+                <label for="cost" class="col-sm-2 col-form-label text-white">Cost</label>
+                <div class="col-sm-10">
+                    <input [(ngModel)]= "order.cost" type="number" class="form-control" id="cost" name="cost" >
+                </div>
+            </div>
+            <br>
+            <div class="form-group d-flex justify-content-center ">
+                <button (click)="add()" class="btn btn-primary col-6">Add</button>
+                <button class="btn btn-danger col-6">Cancel</button>
+            </div>
+        </div>
+    </form>
+    <br>
+</div>

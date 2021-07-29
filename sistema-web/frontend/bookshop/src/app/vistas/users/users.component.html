@@ -1,1 +1,39 @@
-<p>users works!</p>
+<div class="container">
+
+    <h3 class="text-white">Users list</h3>
+    <br>
+    <button type="button" class="btn btn-primary" (click)="createUser()">Add new <i class="fas fa-plus"></i></button>
+    <br>
+    <br>
+    <table class="table table-striped table-dark">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Lastnamef</th>
+                <th scope="col">Lastnamem</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Street</th>
+                <th scope="col">No.</th>
+                <th scope="col">Suburb</th>
+                <th scope="col">Zipcode</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let u of users">
+                <td>{{u.name}}</td>
+                <td>{{u.lastnamef}}</td>
+                <td>{{u.lastnamem}}</td>
+                <td>{{u.phone}}</td>
+                <td>{{u.street}}</td>
+                <td>{{u.num}}</td>
+                <td>{{u.suburb}}</td>
+                <td>{{u.zipcode}}</td>
+                <td>
+                    <button type="button" class="btn mr-2 mb-2 btn-primary" (click)="editUser(u.sk)" >Update <i class="fas fa-edit" title="Update"></i></button>
+                    <button type="button" class="btn mr-2 mb-2 btn-danger" (click)="deleteUser(u.sk)">Delete <i class="fas fa-trash" title="Delete"></i></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

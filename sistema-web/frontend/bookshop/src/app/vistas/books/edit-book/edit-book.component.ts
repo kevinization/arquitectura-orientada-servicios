@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { BookI } from 'src/app/modelos/book.interface';
 import { ApiService } from 'src/app/servicios/api/api.service';
-import { BooksComponent } from '../books.component';
+import { AuthorI } from 'src/app/modelos/author.interface';
+import { GenreI } from 'src/app/modelos/genre.interface';
+import { EditorialI } from 'src/app/modelos/editorial.interface';
 
 @Component({
   selector: 'app-edit-book',
@@ -12,15 +14,23 @@ import { BooksComponent } from '../books.component';
 export class EditBookComponent implements OnInit {
   book: BookI = {
     name: '',
+    sk: '',
+    pk: '',
     id_author: '',
     id_genre: '',
     isbn: '',
     id_editorial: '',
     description: '',
-    price: ''
+    price: '',
+    createdAt: ''
   }
   list: any;
   bookSk: any;
+
+  authors: AuthorI[] = [];
+  editorials: EditorialI[] = [];
+  genres: GenreI[] = [];
+
   constructor(private activatedrouter: ActivatedRoute, private router: Router, private api: ApiService) { }
 
   ngOnInit(): void {
@@ -37,6 +47,10 @@ export class EditBookComponent implements OnInit {
       })
     }
 
+    this.getAuthors();
+    this.getEditorials();
+    this.getGenres();
+
   }
 
   save(){
@@ -44,6 +58,27 @@ export class EditBookComponent implements OnInit {
     this.api.updateBook(this.bookSk, this.book).subscribe(data =>{
       console.log(data);
       this.router.navigate(['/books']);
+    });
+  }
+
+  getAuthors(){
+    this.api.getAllAuthors().subscribe(data => {
+      console.log(data);
+      this.authors = data;
+    });
+  }
+
+  getEditorials(){
+    this.api.getAllEditorials().subscribe(data => {
+      console.log(data);
+      this.editorials = data;
+    });
+  }
+
+  getGenres(){
+    this.api.getAllGenres().subscribe(data => {
+      console.log(data);
+      this.genres = data;
     });
   }
 

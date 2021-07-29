@@ -35,8 +35,9 @@ const routes: Routes = [
 
   // Authors routes
   { path: 'authors', component: AuthorsComponent },
-  //{ path: 'authors/create', component: CreateAuthorComponent },
-  //{ path: 'authors/edit/:sk', component: EditAuthorComponent },
+  { path: 'authors/create', component: CreateAuthorComponent },
+  { path: 'authors/delete/:sk', component: AuthorsComponent},
+  { path: 'authors/edit/:sk', component: EditAuthorComponent },
 
   // Books routes
   { path: 'books', component: BooksComponent },

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { EditorialI } from 'src/app/modelos/editorial.interface';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ApiService } from 'src/app/servicios/api/api.service';
+import { OrderI } from 'src/app/modelos/order.interface';
 
 @Component({
   selector: 'app-edit-editorial',
@@ -19,6 +20,8 @@ export class EditEditorialComponent implements OnInit {
   }
   editSk: any;
   list: any;
+
+  orders: OrderI[] = [];
   constructor(private activatedrouter: ActivatedRoute, private router: Router, private api: ApiService) { }
 
   ngOnInit(): void {
@@ -32,8 +35,10 @@ export class EditEditorialComponent implements OnInit {
         console.log(data);
         this.list = data;
         this.editorial = this.list;
-      })
+      });
     }
+
+    this.getOrders();
   }
 
   save(){
@@ -41,6 +46,12 @@ export class EditEditorialComponent implements OnInit {
     this.api.updateEditorial(this.editSk, this.editorial).subscribe(data =>{
       console.log(data);
       this.router.navigate(['/editorials']);
+    });
+  }
+
+  getOrders(){
+    this.api.getAllOrders().subscribe(data => {
+      this.orders = data;
     });
   }
 

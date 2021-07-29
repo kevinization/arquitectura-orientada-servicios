@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { EditorialI } from 'src/app/modelos/editorial.interface';
+import { ApiService } from 'src/app/servicios/api/api.service';
+import { Router } from '@angular/router';
+import { OrderI } from 'src/app/modelos/order.interface';
 
 @Component({
   selector: 'app-create-editorial',
@@ -6,10 +10,32 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./create-editorial.component.css']
 })
 export class CreateEditorialComponent implements OnInit {
+  editorial: EditorialI = {
+    pk: '', 
+    sk: '', 
+    id_order: '', 
+    editorial_phone: '', 
+    contact_name: '', 
+    createdAt: '' 
+  }
+  orders: OrderI[] = [];
 
-  constructor() { }
+  constructor(private apiService: ApiService, private router: Router) { }
 
   ngOnInit(): void {
+    this.getOrders();
+  }
+
+  add(){
+    console.log(this.editorial);
+    this.apiService.createEditorial(this.editorial).subscribe();
+    this.router.navigate(['/editorials']);
+  }
+
+  getOrders(){
+    this.apiService.getAllOrders().subscribe(data => {
+      this.orders = data;
+    });
   }
 
 }
