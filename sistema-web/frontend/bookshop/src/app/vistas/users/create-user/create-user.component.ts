@@ -31,8 +31,11 @@ export class CreateUserComponent implements OnInit {
 
   add(){
     console.log(this.user);
-    this.apiService.createUser(this.user).subscribe();
-    this.router.navigate(['/users']);
+    this.apiService.createUser(this.user).subscribe(data=>{
+      console.log(data);
+      console.log("Usuario añadido");
+      this.router.navigate(['/users']);
+    });
   }
 
 }

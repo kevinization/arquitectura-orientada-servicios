@@ -22,8 +22,11 @@ export class CreateAuthorComponent implements OnInit {
 
   add(){
     console.log(this.author);
-    this.apiService.createAuthor(this.author).subscribe();
-    this.router.navigate(['/authors']);
+    this.apiService.createAuthor(this.author).subscribe(data=>{
+      console.log(data);
+      console.log("Autor añadido");
+      this.router.navigate(['/authors']);
+    });
   }
 
 }

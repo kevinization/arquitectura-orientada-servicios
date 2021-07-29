@@ -33,8 +33,11 @@ export class CreateSaleComponent implements OnInit {
 
   add(){
     console.log(this.sale);
-    this.apiService.createSale(this.sale).subscribe();
-    this.router.navigate(['/sales']);
+    this.apiService.createSale(this.sale).subscribe(data=>{
+      console.log(data);
+      console.log("Venta añadida");
+      this.router.navigate(['/sales']);
+    });
   }
 
   getUsers(){

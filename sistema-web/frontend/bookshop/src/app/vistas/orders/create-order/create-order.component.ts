@@ -34,8 +34,11 @@ export class CreateOrderComponent implements OnInit {
 
   add(){
     console.log(this.order);
-    this.apiService.createOrder(this.order).subscribe();
-    this.router.navigate(['/orders']);
+    this.apiService.createOrder(this.order).subscribe(data=>{
+      console.log(data);
+      console.log("Orden añadida");
+      this.router.navigate(['/orders']);
+    });
   }
 
   getUsers(){

@@ -22,8 +22,11 @@ export class CreateGenreComponent implements OnInit {
 
   add(){
     console.log(this.genre);
-    this.apiService.createGenre(this.genre).subscribe();
-    this.router.navigate(['/genres']);
+    this.apiService.createGenre(this.genre).subscribe(data=>{
+      console.log(data);
+      console.log("Genero añadido");
+      this.router.navigate(['/genres']);
+    });
   }
 
 }

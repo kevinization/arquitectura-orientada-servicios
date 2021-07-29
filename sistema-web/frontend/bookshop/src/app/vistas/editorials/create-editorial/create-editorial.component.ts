@@ -28,8 +28,11 @@ export class CreateEditorialComponent implements OnInit {
 
   add(){
     console.log(this.editorial);
-    this.apiService.createEditorial(this.editorial).subscribe();
-    this.router.navigate(['/editorials']);
+    this.apiService.createEditorial(this.editorial).subscribe(data=>{
+      console.log(data);
+      console.log("Editorial añadida");
+      this.router.navigate(['/editorials']);
+    });
   }
 
   getOrders(){

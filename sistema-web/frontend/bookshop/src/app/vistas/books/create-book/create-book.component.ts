@@ -40,8 +40,11 @@ export class CreateBookComponent implements OnInit {
 
   add(){
     console.log(this.book);
-    this.apiService.createBook(this.book).subscribe();
-    this.router.navigate(['/books']);
+    this.apiService.createBook(this.book).subscribe(data=>{
+      console.log(data);
+      console.log("Libro añadido");
+      this.router.navigate(['/books']);
+    });
   }
 
   getAuthors(){
