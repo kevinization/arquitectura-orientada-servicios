@@ -23,12 +23,11 @@ export class GenresComponent implements OnInit {
   }
 
   deleteGenre(sk:string){
-    this.api.deleteGenre(sk).subscribe(data => {
-      console.log('Genero eliminada');
+    this.api.deleteGenre(sk).subscribe(d =>{},err=> {
+      console.log(err); 
+      console.log('Genero eliminado');
       this.getGenres();
-    },
-    err => console.log(err)
-    );
+    });
   }
 
   createGenre() {

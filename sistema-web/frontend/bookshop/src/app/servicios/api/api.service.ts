@@ -9,6 +9,7 @@ import { GenreI } from 'src/app/modelos/genre.interface';
 import { AuthorI } from 'src/app/modelos/author.interface';
 import { OrderI } from 'src/app/modelos/order.interface';
 import { UserI } from 'src/app/modelos/user.interface';
+import { BookI } from 'src/app/modelos/book.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -31,10 +32,10 @@ export class ApiService {
     return this.http.get<BookslistI[]>(direccion);
   }
 
-  deleteBook(sk: string){
+  deleteBook(sk: string): Observable<BookI>{
     let direccion = this.url + "deleteBook/" +sk;
     console.log("direccion: " + direccion);
-    return this.http.delete(direccion);
+    return this.http.delete<BookI>(direccion);
   }
 
   updateBook(sk: string, book:any){

@@ -23,12 +23,11 @@ export class SalesComponent implements OnInit {
   }
 
   deleteSale(sk:string){
-    this.api.deleteSale(sk).subscribe(data => {
+    this.api.deleteSale(sk).subscribe(d =>{},err=> {
+      console.log(err); 
       console.log('Venta eliminada');
       this.getSales();
-    },
-    err => console.log(err)
-    );
+    });
   }
 
   createSale() {

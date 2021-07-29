@@ -23,12 +23,11 @@ export class OrdersComponent implements OnInit {
   }
 
   deleteOrder(sk:string){
-    this.api.deleteOrder(sk).subscribe(data => {
+    this.api.deleteOrder(sk).subscribe(d =>{},err=> {
+      console.log(err); 
       console.log('Orden eliminada');
       this.getOrders();
-    },
-    err => console.log(err)
-    );
+    });
   }
 
   createOrder() {

@@ -23,12 +23,11 @@ export class UsersComponent implements OnInit {
   }
 
   deleteUser(sk:string){
-    this.api.deleteUser(sk).subscribe(data => {
+    this.api.deleteUser(sk).subscribe(d =>{},err=> {
+      console.log(err); 
       console.log('Usuario eliminado');
       this.getUsers();
-    },
-    err => console.log(err)
-    );
+    });
   }
 
   createUser() {

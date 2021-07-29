@@ -27,12 +27,11 @@ export class AuthorsComponent implements OnInit {
   }
 
   deleteAuthor(sk:string){
-    this.api.deleteAuthor(sk).subscribe(data => {
+    this.api.deleteAuthor(sk).subscribe(d =>{},err=> {
+      console.log(err); 
       console.log('Autor eliminado');
       this.getAuthors();
-    },
-    err => console.log(err)
-    );
+    });
   }
 
   createAuthor() {

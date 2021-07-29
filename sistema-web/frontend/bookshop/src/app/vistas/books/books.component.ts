@@ -28,12 +28,11 @@ export class BooksComponent implements OnInit {
   }
 
   deleteBook(sk:string){
-    this.api.deleteBook(sk).subscribe(data => {
+    this.api.deleteBook(sk).subscribe(d =>{},err=> {
+      console.log(err); 
       console.log('Libro eliminado');
       this.getBooks();
-    },
-    err => console.log(err)
-    );
+    });
   }
 
   createBook() {

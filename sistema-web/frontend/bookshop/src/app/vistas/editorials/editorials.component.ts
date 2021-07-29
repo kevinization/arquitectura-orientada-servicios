@@ -23,12 +23,11 @@ export class EditorialsComponent implements OnInit {
   }
 
   deleteEditorial(sk:string){
-    this.api.deleteEditorial(sk).subscribe(data => {
-      console.log('Editorial eliminada');
+    this.api.deleteEditorial(sk).subscribe(d =>{},err=> {
+      console.log(err); 
+      console.log('Editorial eliminado');
       this.getEditorials();
-    },
-    err => console.log(err)
-    );
+    });
   }
 
   createEditorial() {
