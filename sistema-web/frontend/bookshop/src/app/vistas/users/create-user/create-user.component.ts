@@ -29,6 +29,10 @@ export class CreateUserComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  cancel(){
+    this.router.navigate(['/users']);
+  }
+
   add(){
     console.log(this.user);
     this.apiService.createUser(this.user).subscribe(data=>{

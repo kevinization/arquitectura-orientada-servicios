@@ -40,6 +40,10 @@ export class CreateSaleComponent implements OnInit {
     });
   }
 
+  cancel(){
+    this.router.navigate(['/sales']);
+  }
+
   getUsers(){
     this.apiService.getAllUsers().subscribe(data => {
       this.users = data;

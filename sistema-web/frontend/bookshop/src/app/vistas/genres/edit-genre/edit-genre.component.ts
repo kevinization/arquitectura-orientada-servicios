@@ -42,4 +42,8 @@ export class EditGenreComponent implements OnInit {
     });
   }
 
+  cancel(){
+    this.router.navigate(['/genres']);
+  }
+
 }

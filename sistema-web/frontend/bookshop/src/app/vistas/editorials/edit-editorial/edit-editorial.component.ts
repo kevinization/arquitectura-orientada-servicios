@@ -49,6 +49,10 @@ export class EditEditorialComponent implements OnInit {
     });
   }
 
+  cancel(){
+    this.router.navigate(['/editorials']);
+  }
+
   getOrders(){
     this.api.getAllOrders().subscribe(data => {
       this.orders = data;

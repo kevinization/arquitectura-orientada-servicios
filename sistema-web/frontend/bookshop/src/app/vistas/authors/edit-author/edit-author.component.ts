@@ -42,4 +42,8 @@ export class EditAuthorComponent implements OnInit {
     });
   }
 
+  cancel(){
+    this.router.navigate(['/authors']);
+  }
+
 }

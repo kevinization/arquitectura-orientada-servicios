@@ -56,6 +56,10 @@ export class EditSaleComponent implements OnInit {
     });
   }
 
+  cancel(){
+    this.router.navigate(['/sales']);
+  }
+  
   getUsers(){
     this.api.getAllUsers().subscribe(da => {
       this.users = da;

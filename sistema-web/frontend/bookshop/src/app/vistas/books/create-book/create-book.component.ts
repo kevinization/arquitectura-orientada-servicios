@@ -47,6 +47,10 @@ export class CreateBookComponent implements OnInit {
     });
   }
 
+  cancel(){
+    this.router.navigate(['/books']);
+  }
+
   getAuthors(){
     this.apiService.getAllAuthors().subscribe(data => {
       this.authors = data;

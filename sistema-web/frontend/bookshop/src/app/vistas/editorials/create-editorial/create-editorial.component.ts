@@ -35,6 +35,10 @@ export class CreateEditorialComponent implements OnInit {
     });
   }
 
+  cancel(){
+    this.router.navigate(['/editorials']);
+  }
+
   getOrders(){
     this.apiService.getAllOrders().subscribe(data => {
       this.orders = data;

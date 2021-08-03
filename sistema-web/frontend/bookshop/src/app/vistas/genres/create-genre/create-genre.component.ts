@@ -29,4 +29,8 @@ export class CreateGenreComponent implements OnInit {
     });
   }
 
+  cancel(){
+    this.router.navigate(['/genres']);
+  }
+
 }

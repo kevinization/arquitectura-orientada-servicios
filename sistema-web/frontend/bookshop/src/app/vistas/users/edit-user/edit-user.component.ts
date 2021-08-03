@@ -43,6 +43,10 @@ export class EditUserComponent implements OnInit {
     }
   }
 
+  cancel(){
+    this.router.navigate(['/users']);
+  }
+
   save(){
     console.log("sk:" + this.usrSk);
     this.api.updateUser(this.usrSk, this.user).subscribe(data =>{

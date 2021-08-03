@@ -57,6 +57,10 @@ export class EditOrderComponent implements OnInit {
     });
   }
 
+  cancel(){
+    this.router.navigate(['/orders']);
+  }
+
   getUsers(){
     this.api.getAllUsers().subscribe(d => {
       this.users = d;

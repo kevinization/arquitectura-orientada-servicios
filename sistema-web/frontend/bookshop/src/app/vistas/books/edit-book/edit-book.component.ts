@@ -61,6 +61,10 @@ export class EditBookComponent implements OnInit {
     });
   }
 
+  cancel(){
+    this.router.navigate(['/books']);
+  }
+
   getAuthors(){
     this.api.getAllAuthors().subscribe(data => {
       console.log(data);

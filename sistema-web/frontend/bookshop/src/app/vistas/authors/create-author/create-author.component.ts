@@ -29,4 +29,8 @@ export class CreateAuthorComponent implements OnInit {
     });
   }
 
+  cancel(){
+    this.router.navigate(['/authors']);
+  }
+
 }

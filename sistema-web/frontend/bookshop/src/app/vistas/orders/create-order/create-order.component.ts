@@ -41,6 +41,10 @@ export class CreateOrderComponent implements OnInit {
     });
   }
 
+  cancel(){
+    this.router.navigate(['/orders']);
+  }
+
   getUsers(){
     this.apiService.getAllUsers().subscribe(data => {
       this.users = data;
